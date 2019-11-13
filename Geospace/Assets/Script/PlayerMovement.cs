@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     //Movement attributes
     private Rigidbody2D rb;
@@ -17,22 +17,15 @@ public class Player : MonoBehaviour
     private float objectHeight;
     private float objectWidth;
 
-    //Fire attributes
-    public GameObject bullet;
-    public float bulletspeed;
-    public float cooldown;
-    private float shoot;
+    //Health
+    private PlayerHealth PlayerHealth;
 
-    //Health attributes
-    private float currentHealth;
-    public float maxHealth;
-    public GameObject healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shoot = cooldown;
+        PlayerHealth = GetComponent<PlayerHealth>();
 
         //Calcul de la taille de la camera
         screenBounds = Camera.main.ScreenToWorldPoint(
@@ -41,9 +34,6 @@ public class Player : MonoBehaviour
         //Calcul de la taille du sprite
         objectWidth = GetComponent<SpriteRenderer>().bounds.size.x;
         objectHeight = GetComponent<SpriteRenderer>().bounds.size.y;
-
-        //Setting max health on start
-        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -65,16 +55,8 @@ public class Player : MonoBehaviour
         {
             touchStart = false;
         }
-
-        //Continuous shooting
-        shoot -= Time.deltaTime;
-
-        if (shoot < 0)
-        {
-            Shoot();
-            shoot = cooldown;
-        }
     }
+
     private void FixedUpdate()
     {
         //Move
@@ -101,20 +83,7 @@ public class Player : MonoBehaviour
         //Damage taken
         if (collision.gameObject.tag == "Enemies")
         {
-            //Loss of HP
-            currentHealth -= 1;
-
-            //Death
-            if (currentHealth <= 0)
-            {
-                Destroy(gameObject);
-            }
+            PlayerHealth.TakeDamage();
         }
-    }
-
-    private void Shoot()
-    {
-        GameObject b = Instantiate(bullet, transform.position, transform.rotation);
-        b.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletspeed;
     }
 }

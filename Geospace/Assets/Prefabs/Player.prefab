@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 718926774427029501}
   - component: {fileID: 2728792339645447938}
   - component: {fileID: 1071262162276767491}
-  - component: {fileID: 8259365874550532786}
   - component: {fileID: 1010940063857841061}
+  - component: {fileID: -1199746478622749484}
+  - component: {fileID: -5372566161371894506}
+  - component: {fileID: 3864330906090627217}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -105,25 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8259365874550532786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537167804092667730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 184b304a8d575fa40a9fc2b5b4fda862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  bullet: {fileID: 2456234223263145228, guid: 9ba35028270fe504d8e8f27214578d58, type: 3}
-  bulletspeed: 10
-  cooldown: 0.5
-  maxHealth: 10
-  healthBar: {fileID: 1361554327427501715, guid: 627eeb3f66989de47bc5499cc5e2f09d,
-    type: 3}
 --- !u!61 &1010940063857841061
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +133,45 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.206635, y: 0.14016798}
   m_EdgeRadius: 0
+--- !u!114 &-1199746478622749484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537167804092667730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184b304a8d575fa40a9fc2b5b4fda862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+--- !u!114 &-5372566161371894506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537167804092667730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019f861db9026234fac7e68619a00d69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2456234223263145228, guid: 9ba35028270fe504d8e8f27214578d58, type: 3}
+  bulletspeed: 10
+  cooldown: 0.5
+--- !u!114 &3864330906090627217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537167804092667730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675bb582e1c0cd44c8359838ea029cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 1
+  bar: {fileID: 1361554327427501715, guid: 627eeb3f66989de47bc5499cc5e2f09d, type: 3}
